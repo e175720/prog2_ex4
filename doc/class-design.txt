@@ -1,0 +1,39 @@
+import java.io.*;
+
+public class Foo {
+  public static void main(String args[]) {
+
+    if (args.length == 0) {
+      System.err.println("Input Filename:");
+      System.exit(1);
+    }
+
+    try {
+      BufferedReader in = new BufferedReader(new FileReader(args[0]));
+      String s;
+      String[] lines;
+      String[][] factor = new String[5][8];
+      int i=0;
+      int j=0;
+
+      while ((s = in.readLine()) != null) {
+        lines[i] = s;
+        i++;
+      }
+      lines[1]=
+      for (int i = 0; i < factor.length; i++) {
+            for (int j = 0; j < factor[i].length; j++) {
+              factor[i][j] = "~";
+            }
+          }
+      in.close();
+    } catch (IOException e) {
+        System.err.println(e);
+        System.exit(1);
+    }
+  }
+}
+
+まず、map.txtファイルを読んで、文字列に保管する。
+最初の列と2番目の列をint変数に保存する。
+３行目からこの文字列をsplitして、各文字を　charの２次元アレイに#->0 空いている->1 G-> -1 に対応する
