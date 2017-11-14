@@ -8,13 +8,12 @@ public class Maze {
     int [][] informnum= new int[2][2];
     String [][] inform = new String[2][2];
     String s;
-    String[] lines = new String[0];
-    public char[][] SetMaze(String inFile) {
-        BufferedReader in = null;
+    String[] lines = new String[10];
+    public char[][] SetMaze(File inFile) {
         try {
-            in = new BufferedReader(new FileReader(inFile));
+            BufferedReader in = new BufferedReader(new FileReader(inFile));
             while ((s = in.readLine()) != null) {
-                String lines[] = new String[1];
+                /*lines[] = new String[1];*/
                 lines[i] = s;
                 i++;
             }
@@ -43,6 +42,11 @@ public class Maze {
                 factor[i][j] = lines[i+2].charAt(j);
             }
         }
+
+        return factor;
+    }
+    public int[][] NumMaze(File inFile) {
+        char[][] factor = SetMaze(inFile);
         int[][] factornum = new int[informnum[1][1]][informnum[1][0]];
         for (i = 0; i < factornum.length; i++) {
             for (int j = 0; j < factornum[i].length; j++) {
@@ -62,10 +66,10 @@ public class Maze {
                 }
             }
         }
-        return factor;
+        return factornum;
     }
 
-    public void printMaze(String inFile){
+    public void printMaze(File inFile){
         char[][] factorpt = SetMaze(inFile);
         int[] location = GetLocation();
         factorpt[location[0]][location[1]] = '人';
