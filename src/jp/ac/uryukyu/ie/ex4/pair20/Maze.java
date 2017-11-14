@@ -45,29 +45,6 @@ public class Maze {
 
         return factor;
     }
-    public int[][] NumMaze(File inFile) {
-        char[][] factor = SetMaze(inFile);
-        int[][] factornum = new int[informnum[1][1]][informnum[1][0]];
-        for (i = 0; i < factornum.length; i++) {
-            for (int j = 0; j < factornum[i].length; j++) {
-                switch (factor[i][j]) {
-                    case '#':
-                        factornum[i][j] = 0;
-                        break;
-                    case ' ':
-                        factornum[i][j] = 1;
-                        break;
-                    case 's':
-                        factornum[i][j] = 1;
-                        break;
-                    case 'G':
-                        factornum[i][j] = -1;
-                        break;
-                }
-            }
-        }
-        return factornum;
-    }
 
     public void printMaze(File inFile){
         char[][] factorpt = SetMaze(inFile);
